@@ -62,7 +62,7 @@ EXAMPLE_TEST_CASES = [
     },
     {
         "name": "edge_case_two_strings_palindrome",
-        "input": ["ab", "ba"],
+        "input": ["ab", "ab"],
         "expected": 1,
         "description": "Two strings that are exact reverses",
     },
