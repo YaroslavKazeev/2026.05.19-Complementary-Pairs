@@ -1,18 +1,6 @@
 def countComplementaryPairs(stringData):
-    counts = {}
-    ans = 0
-    for s in stringData:
-        mask = 0
-        for char in s:
-            mask ^= 1 << (ord(char) - ord("a"))
-
-        ans += counts.get(mask, 0)
-        for k in range(26):
-            ans += counts.get(mask ^ (1 << k), 0)
-
-        counts[mask] = counts.get(mask, 0) + 1
-
-    return ans
+    # write your code here
+    pass
 
 
 EXAMPLE_TEST_CASES = [
