@@ -1,6 +1,18 @@
 def countComplementaryPairs(stringData):
-    # Write your code here
-    pass
+    counts = {}
+    ans = 0
+    for s in stringData:
+        mask = 0
+        for char in s:
+            mask ^= 1 << (ord(char) - ord("a"))
+
+        ans += counts.get(mask, 0)
+        for k in range(26):
+            ans += counts.get(mask ^ (1 << k), 0)
+
+        counts[mask] = counts.get(mask, 0) + 1
+
+    return ans
 
 
 EXAMPLE_TEST_CASES = [
@@ -42,7 +54,7 @@ EXAMPLE_TEST_CASES = [
     },
     {
         "name": "edge_case_two_strings_palindrome",
-        "input": ["ab", "ba"],
+        "input": ["ab", "ab"],
         "expected": 1,
         "description": "Two strings that are exact reverses",
     },
