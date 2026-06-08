@@ -1,6 +1,26 @@
 def countComplementaryPairs(stringData):
-    # Write your code here
-    pass
+    concatPermStrings = []
+    counter = 0
+
+    for i in range(len(stringData) - 1):
+        for j in range(i + 1, len(stringData)):
+            concatPermStrings.append(stringData[i] + stringData[j])
+
+    for string in concatPermStrings:
+        isOddityOnce = False
+        isPalindrome = True
+        for char in set(string):
+            if not isOddityOnce and string.count(char) % 2 != 0:
+                isOddityOnce = True
+                continue
+            if string.count(char) % 2 != 0:
+                isPalindrome = False
+                break
+
+        if isPalindrome:
+            counter += 1
+
+    return counter
 
 
 EXAMPLE_TEST_CASES = [
